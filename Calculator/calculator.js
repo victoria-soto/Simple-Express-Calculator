@@ -25,6 +25,24 @@ app.post("/", function(req, res) {
   res.send("The sum of " + req.body.num1 + " and " + req.body.num2 + " is " + result);
 });
 
+// get request at /bmicalculator route
+app.get("/bmicalculator", function(req, res) {
+  res.sendFile(__dirname + "/bmiCalculator.html");
+});
+
+// post bmi results from values entered on form by user
+app.post("/bmicalculator", function(req, res) {
+  console.log(req.body);
+  var w = Number(req.body.weight);
+  var h = Number(req.body.height);
+
+  //bmi calculation 
+  var bmi = Math.round(Number((w / (h * h)) * 703));
+
+  // send bmi result within post request at /bmicalculator route
+  res.send("Your BMI is " + bmi);
+});
+
 // make server on port 3000
 app.listen("3000", function() {
   console.log("Server is running on port 3000.");
