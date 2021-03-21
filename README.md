@@ -1,2 +1,2 @@
 # Simple-Express-Calculator
-Addition calculator using node, express and body-parser
+Addition and bmi calculator using node, express and body-parser
